@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @Controller
 public class CoinController {
     @Autowired
@@ -32,10 +31,6 @@ public class CoinController {
         return ResponseEntity.ok().contentType(MediaType.valueOf("application/json")).body(JSON.toJSONString(coinAPIService.TransferCoindeskAPI()));
     }
 
-    @GetMapping("findAll")
-    public ResponseEntity<String> findAll() {
-        return ResponseEntity.ok().contentType(MediaType.valueOf("application/json")).body(JSON.toJSONString(coinRepository.findAll()));
-    }
 
     // 查詢幣別對應表資料
     @GetMapping("find/{code}")
@@ -52,7 +47,7 @@ public class CoinController {
     // 更新幣別對應表資料 , 顯示其內容。
     @PutMapping("update/{code}")
     public ResponseEntity<String> update(@RequestBody CoinDesk coindesk, @PathVariable("code") String code) {
-        return coinAPIService.updateCoinDesk(coindesk,code);
+        return coinAPIService.updateCoinDesk(coindesk, code);
     }
 
     // 刪除幣別對應表資料
@@ -62,4 +57,8 @@ public class CoinController {
     }
 
 
+    @GetMapping("findAll")
+    public ResponseEntity<String> findAll() {
+        return ResponseEntity.ok().contentType(MediaType.valueOf("application/json")).body(JSON.toJSONString(coinRepository.findAll()));
+    }
 }

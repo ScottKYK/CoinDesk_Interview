@@ -59,7 +59,6 @@ public class CoinAPIService {
             list.add(usdCoin);
             list.add(gbpCoin);
             list.add(eurCoin);
-            System.out.println("isEmpty");
         } else {
             list = new ArrayList<>();
             Optional<CoinDesk> oldUsd = coinRepository.findByCode(CoinDeskConstant.USD);
@@ -69,8 +68,6 @@ public class CoinAPIService {
             list.add(getNewCoin(oldUsd,usdCoin));
             list.add(getNewCoin(oldGbp,gbpCoin));
             list.add(getNewCoin(oldEur,eurCoin));
-
-            System.out.println("noEmpty");
         }
         coinRepository.saveAll(list);
         return list;
@@ -97,7 +94,7 @@ public class CoinAPIService {
         newConDesk.setRate(coindesk.getRate());
         newConDesk.setUpdateTime(nowTime());
 
-        CoinDesk save = coinRepository.save(newConDesk);
+        coinRepository.save(newConDesk);
         return ResponseEntity.ok().contentType(MediaType.valueOf("application/json")).build();
     }
 
