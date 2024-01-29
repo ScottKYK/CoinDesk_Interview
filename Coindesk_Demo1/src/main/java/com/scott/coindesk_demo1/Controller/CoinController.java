@@ -50,7 +50,7 @@ public class CoinController {
     }
 
     // 更新幣別對應表資料 , 顯示其內容。
-    @PostMapping("update/{code}")
+    @PutMapping("update/{code}")
     public ResponseEntity<String> update(@RequestBody CoinDesk coindesk, @PathVariable("code") String code) {
         return coinAPIService.updateCoinDesk(coindesk,code);
     }

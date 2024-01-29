@@ -106,7 +106,7 @@ class CoindeskDemo1ApplicationTests {
         request.put("updateTime", nowTime());
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
-                .post("/update/" + code)
+                .put("/update/" + code)
                 .headers(httpHeaders)
                 .content(request.toString());
         mockMvc.perform(requestBuilder)
