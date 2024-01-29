@@ -1,6 +1,6 @@
 # CoinDesk_Interview
-開發軟體 : Java 8
-資料庫: H2 (結合Spring JPA執行CRUD)
+開發軟體 : Java 8  
+資料庫: H2 (結合Spring JPA執行CRUD)  
 IDEA: IntelliJ 2023
 
 ## 實作內容:
